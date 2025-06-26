@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Raisun Enterprises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f1f; color: #e0e0e0; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; }
+        .gradient-text { background: linear-gradient(90deg, #ffffff, #a0d8f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 10px; border: 2px solid #0a0f1f; }
+        .filter-btn.active { background-color: #06b6d4; color: white; }
+        .masonry-grid {
+            column-gap: 1.5rem;
+            column-count: 1;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            break-inside: avoid;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .gallery-item.hidden {
+            transform: scale(0.9);
+            opacity: 0;
+            width: 0;
+            margin-bottom: 0;
+            padding: 0;
+            font-size: 0;
+            pointer-events: none;
+        }
+        .gallery-image {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .group:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        .gallery-overlay-content {
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .group:hover .gallery-overlay-content {
+            transform: translateY(0);
+        }
+        .social-toggle-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+        .social-toggle-item { position: absolute; bottom: 0; right: 0; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); opacity: 0; transform: scale(0.5); }
+        .social-toggle-container.active .social-toggle-item { opacity: 1; transform: scale(1); }
+        .social-toggle-container.active .social-whatsapp { transform: translate(0, -5rem); }
+        .social-toggle-container.active .social-instagram { transform: translate(0, -9.5rem); }
+        .social-toggle-container.active .social-youtube { transform: translate(0, -14rem); }
+        .social-main-button { transition: transform 0.3s ease; }
+        .social-toggle-container.active .social-main-button { transform: rotate(135deg); }
+        .instagram-gradient { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+    </style>
+</head>
+<body class="antialiased">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-sm shadow-lg"><nav class="container mx-auto px-6 py-4 flex justify-between items-center"><a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-10"><span>Raisun</span></a><ul class="hidden lg:flex items-center space-x-8 text-white"><li><a href="index.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Home</a></li><li><a href="services.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Services</a></li><li><a href="about.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">About</a></li><li><a href="gallery.html" class="nav-link text-cyan-400 font-semibold transition-colors duration-300">Gallery</a></li><li><a href="contact.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Contact</a></li></ul><button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars text-2xl"></i></button></nav></header>
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-50"><div class="flex flex-col items-center justify-center h-full"><button id="close-mobile-menu" class="absolute top-8 right-8 text-white text-3xl">&times;</button><ul class="text-center space-y-8"><li><a href="index.html" class="mobile-nav-link text-3xl text-white font-medium">Home</a></li><li><a href="services.html" class="mobile-nav-link text-3xl text-white font-medium">Services</a></li><li><a href="about.html" class="mobile-nav-link text-3xl text-white font-medium">About</a></li><li><a href="gallery.html" class="mobile-nav-link text-3xl text-cyan-400 font-medium">Gallery</a></li><li><a href="contact.html" class="mobile-nav-link text-3xl text-white font-medium">Contact</a></li></ul></div></div>
+    <main>
+        <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 text-center relative bg-[#0d1428]"><div class="container mx-auto px-6"><h1 class="text-5xl md:text-6xl font-bold uppercase tracking-wide gradient-text">Our Portfolio</h1><p class="mt-4 text-lg max-w-2xl mx-auto text-gray-400">A glimpse into the immersive worlds we've meticulously crafted for our clients.</p></div></section>
+        <section id="gallery-grid-section" class="py-16 lg:py-24"><div class="container mx-auto px-6"><div id="filter-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12"><button class="filter-btn active bg-slate-700 hover:bg-cyan-600 text-gray-200 font-semibold px-6 py-2 rounded-full transition-all duration-300" data-filter="all">All Projects</button><button class="filter-btn bg-slate-700 hover:bg-cyan-600 text-gray-200 font-semibold px-6 py-2 rounded-full transition-all duration-300" data-filter="theater">Home Theaters</button><button class="filter-btn bg-slate-700 hover:bg-cyan-600 text-gray-200 font-semibold px-6 py-2 rounded-full transition-all duration-300" data-filter="acoustic">Acoustic Treatment</button><button class="filter-btn bg-slate-700 hover:bg-cyan-600 text-gray-200 font-semibold px-6 py-2 rounded-full transition-all duration-300" data-filter="lighting">Smart Lighting</button></div>
+            <div class="masonry-grid">
+            </div>
+        </div></section>
+    </main>
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"><button id="close-lightbox" class="absolute top-6 right-6 text-white text-5xl opacity-80 hover:opacity-100">&times;</button><img id="lightbox-img" src="" alt="Enlarged gallery image" class="max-w-[95vw] max-h-[90vh] rounded-lg shadow-2xl"></div>
+    <div id="social-toggle" class="social-toggle-container"><a href="https://youtube.com" target="_blank" class="social-toggle-item social-youtube w-14 h-14 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-youtube text-2xl"></i></a><a href="https://instagram.com" target="_blank" class="social-toggle-item social-instagram w-14 h-14 rounded-full instagram-gradient flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-instagram text-2xl"></i></a><a href="https://wa.me/917483677007" target="_blank" class="social-toggle-item social-whatsapp w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-whatsapp text-2xl"></i></a><button id="social-main-btn" class="social-main-button w-16 h-16 rounded-full bg-cyan-500 hover:bg-cyan-600 flex items-center justify-center text-white shadow-lg relative z-10 transform hover:scale-110"><i class="fas fa-plus text-2xl"></i></button></div>
+    <footer class="bg-[#0d1428] border-t border-slate-800"><div class="container mx-auto px-6 pt-16 pb-8"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-gray-400"><div class="mb-4 lg:mb-0"><a href="index.html" class="flex items-center space-x-2 mb-4 text-xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-8"><span>Raisun</span></a><p class="text-sm mb-4">Designing immersive audio-visual experiences that bring stories to life. Your journey to the ultimate home cinema starts here.</p><div class="flex space-x-4"><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-youtube text-xl"></i></a></div></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h3><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition-colors">Home</a></li><li><a href="services.html" class="hover:text-white transition-colors">Services</a></li><li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li><li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li><li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Get In Touch</h3><ul class="space-y-3 text-sm"><li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i><span>No 343/23A, Ground Floor, Jayanagar 5th Block, Bangalore, 560041</span></li><li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-cyan-400"></i><a href="tel:+917483677007" class="hover:text-white transition-colors">74836 77007</a></li><li class="flex items-start"><i class="fas fa-envelope mt-1 mr-3 text-cyan-400"></i><div class="space-y-1"><p><a href="mailto:info@raisunenterprises.com" class="hover:text-white transition-colors">info@raisunenterprises.com</a></p><p><a href="mailto:sales@raisunenterprises.com" class="hover:text-white transition-colors">sales@raisunenterprises.com</a></p><p><a href="mailto:support@raisunenterprises.com" class="hover:text-white transition-colors">support@raisunenterprises.com</a></p><p><a href="mailto:accounts@raisunenterprises.com" class="hover:text-white transition-colors">accounts@raisunenterprises.com</a></p></div></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Join Our Newsletter</h3><p class="text-sm mb-4">Get updates on the latest AV tech, new products, and exclusive offers.</p><form id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex"><input type="email" name="email" placeholder="Your email" class="w-full bg-slate-700 text-white p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-transparent" required><button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-4 rounded-r-lg transition-colors"><i class="fas fa-paper-plane"></i></button></form><div id="newsletter-status" class="mt-2 text-sm"></div></div></div><div class="mt-12 pt-8 border-t border-slate-700/50 text-center text-sm"><p class="text-gray-500">&copy; <span id="current-year"></span> Raisun Enterprises. All Rights Reserved. </p><p class="text-gray-600 mt-1"><a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a><span class="mx-2">|</span><a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a></p></div></div></footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA: Central place for all gallery images ---
+            const galleryData = [
+                { src: "./images/i1.png", title: "Project Skyline", category: "theater" },
+                { src: "./images/i2.png", title: "Acoustic Elegance", category: "acoustic" },
+                { src: "./images/i3.png", title: "Starlight Ceiling", category: "lighting" },
+                { src: "./images/i4.png", title: "Luxury Retreat", category: "theater" },
+                { src: "./images/i5.png", title: "Studio Perfection", category: "acoustic" },
+                { src: "./images/i6.png", title: "The Den", category: "theater" },
+                { src: "./images/i3.png", title: "Ambient Control", category: "lighting" },
+                { src: "./images/i4.png", title: "Wave Breakers", category: "acoustic" },
+                { src: "./images/i2.png", title: "Minimalist View", category: "theater" },
+                { src: "./images/i2.png", title: "Minimalist View", category: "theater" },
+                { src: "./images/i2.png", title: "Minimalist View", category: "theater" }
+            ];
+
+            // --- ELEMENTS ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeLightboxBtn = document.getElementById('close-lightbox');
+            const filterContainer = document.getElementById('filter-container');
+            const masonryGrid = document.querySelector('.masonry-grid');
+            const socialToggle = document.getElementById('social-toggle');
+            const socialMainBtn = document.getElementById('social-main-btn');
+            const newsletterForm = document.getElementById('newsletter-form');
+
+            // --- FUNCTIONS ---
+            function populateGallery() {
+                if (!masonryGrid) return;
+                masonryGrid.innerHTML = galleryData.map(item => `
+                    <div class="gallery-item" data-category="${item.category}">
+                        <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="${item.src}" alt="${item.title}" class="gallery-image w-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="gallery-overlay-content absolute bottom-0 left-0 p-4 w-full">
+                                <h3 class="font-bold text-white text-lg">${item.title}</h3>
+                                <p class="text-sm text-cyan-300 capitalize">${item.category}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function toggleMobileMenu(show) {
+                if (show) { mobileMenu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } 
+                else { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; }
+            }
+
+            function toggleLightbox(show, src = '') {
+                if (show) { lightboxImg.src = src; lightbox.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } 
+                else { lightbox.classList.add('hidden'); document.body.style.overflow = ''; }
+            }
+
+            // --- INITIALIZATION & EVENT LISTENERS ---
+            populateGallery();
+            
+            mobileMenuButton.addEventListener('click', () => toggleMobileMenu(true));
+            closeMobileMenuButton.addEventListener('click', () => toggleMobileMenu(false));
+            document.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', () => toggleMobileMenu(false)));
+
+            masonryGrid.addEventListener('click', function(e) {
+                const galleryItem = e.target.closest('.gallery-item');
+                if (galleryItem) {
+                    const imgSrc = galleryItem.querySelector('img').src;
+                    toggleLightbox(true, imgSrc);
+                }
+            });
+            closeLightboxBtn.addEventListener('click', () => toggleLightbox(false));
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) toggleLightbox(false); });
+            
+            filterContainer.addEventListener('click', (e) => {
+                if (e.target.matches('.filter-btn')) {
+                    filterContainer.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    const filterValue = e.target.getAttribute('data-filter');
+                    document.querySelectorAll('.gallery-item').forEach(item => {
+                        const matchesFilter = filterValue === 'all' || item.dataset.category === filterValue;
+                        item.classList.toggle('hidden', !matchesFilter);
+                    });
+                }
+            });
+
+            socialMainBtn.addEventListener('click', () => socialToggle.classList.toggle('active'));
+            
+            // --- Newsletter Formspree Logic ---
+            if(newsletterForm) {
+                const newsletterStatus = document.getElementById('newsletter-status');
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const data = new FormData(e.target);
+                    try {
+                        const response = await fetch(e.target.action, {
+                            method: newsletterForm.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            newsletterStatus.innerHTML = "<p class='text-green-400'>Thanks for subscribing!</p>";
+                            newsletterForm.reset();
+                        } else {
+                            newsletterStatus.innerHTML = "<p class='text-red-400'>Could not subscribe.</p>";
+                        }
+                    } catch (error) {
+                        newsletterStatus.innerHTML = "<p class='text-red-400'>Oops! Something went wrong.</p>";
+                    }
+                });
+            }
+
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

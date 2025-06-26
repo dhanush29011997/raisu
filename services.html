@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process - Raisun Enterprises</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter for body, Oswald for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom Styles */
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f1f; color: #e0e0e0; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; }
+        .gradient-text { background: linear-gradient(90deg, #ffffff, #a0d8f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 10px; border: 2px solid #0a0f1f; }
+
+        /* Premium Social Toggle Styles */
+        .social-toggle-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+        .social-toggle-item { position: absolute; bottom: 0; right: 0; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); opacity: 0; transform: scale(0.5); }
+        .social-toggle-container.active .social-toggle-item { opacity: 1; transform: scale(1); }
+        .social-toggle-container.active .social-whatsapp { transform: translate(0, -5rem); }
+        .social-toggle-container.active .social-instagram { transform: translate(0, -9.5rem); }
+        .social-toggle-container.active .social-youtube { transform: translate(0, -14rem); }
+        .social-main-button { transition: transform 0.3s ease; }
+        .social-toggle-container.active .social-main-button { transform: rotate(135deg); }
+        .instagram-gradient { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+
+        /* Loader for AI Image Generator */
+        #image-loader .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-left-color: #06b6d4; /* cyan-500 */
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Video Modal Styles */
+        .video-modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- =========== Header =========== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-sm shadow-lg"><nav class="container mx-auto px-6 py-4 flex justify-between items-center"><a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-10"><span>Raisun</span></a><ul class="hidden lg:flex items-center space-x-8 text-white"><li><a href="index.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Home</a></li><li><a href="services.html" class="nav-link text-cyan-400 font-semibold transition-colors duration-300">Services</a></li><li><a href="about.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">About</a></li><li><a href="gallery.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Gallery</a></li><li><a href="contact.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Contact</a></li></ul><button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars text-2xl"></i></button></nav></header>
+    
+    <!-- =========== Mobile Menu =========== -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-50"><div class="flex flex-col items-center justify-center h-full"><button id="close-mobile-menu" class="absolute top-8 right-8 text-white text-3xl">&times;</button><ul class="text-center space-y-8"><li><a href="index.html" class="mobile-nav-link text-3xl text-white font-medium">Home</a></li><li><a href="services.html" class="mobile-nav-link text-3xl text-cyan-400 font-medium">Services</a></li><li><a href="about.html" class="mobile-nav-link text-3xl text-white font-medium">About</a></li><li><a href="gallery.html" class="mobile-nav-link text-3xl text-white font-medium">Gallery</a></li><li><a href="contact.html" class="mobile-nav-link text-3xl text-white font-medium">Contact</a></li></ul></div></div>
+    
+    <!-- =========== Main Content =========== -->
+    <main>
+        <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 text-center relative bg-[#0d1428]"><div class="container mx-auto px-6"><h1 class="text-5xl md:text-6xl font-bold uppercase tracking-wide gradient-text">Your Guide to the Ultimate Home Theatre</h1><p class="mt-4 text-lg max-w-3xl mx-auto text-gray-400">Embark on your journey to cinematic perfection with our expert guide. We break down every crucial element to help you create a home theatre that truly transforms your entertainment.</p></div></section>
+        
+        <!-- Updated Video Section -->
+        <section class="py-16 lg:py-24"><div class="container mx-auto px-6"><div class="max-w-4xl mx-auto bg-slate-800/50 p-6 md:p-8 rounded-2xl shadow-lg border border-slate-700">
+            <div id="video-thumbnail" class="relative aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center cursor-pointer group">
+                 <img src="./images/i3.png" class="w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity" alt="Home theater background"/>
+                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">Home Theatre Journey</h2>
+                    <div class="mt-4 text-white text-5xl md:text-7xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                        <i class="far fa-play-circle"></i>
+                    </div>
+                 </div>
+            </div>
+            <div class="mt-4 text-center"><h3 class="text-xl font-semibold text-white">Watch: A Quick Overview of Your Home Theatre Journey</h3><p class="text-gray-400 mt-1">Discover key considerations for setting up your perfect home entertainment space with this introductory video.</p></div>
+        </div></div></section>
+        
+        <section class="py-16 lg:py-24 bg-[#0d1428]"><div class="container mx-auto px-6"><div class="grid md:grid-cols-2 gap-8"><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">1.</span> Selecting Your Perfect Space</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Optimize your space:</strong> Discover how to choose and prepare a room that maximizes your home theatre potential.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Understanding size & acoustics:</strong> Learn the impact of room dimensions on audio clarity and visual impact.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Foundational acoustics:</strong> Unlock the secrets to superior sound quality through strategic room layout.</span></li></ul></div><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">2.</span> Mastering Your Audio Experience</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Speaker solutions tailored for you:</strong> Explore a diverse range of speaker options, from discreet in-wall installations to powerful floor-standing models.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Deep, resonant bass:</strong> Dive into effective subwoofer selection and placement techniques.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Choosing the right receiver:</strong> Understand essential features for seamless integration and peak audio performance.</span></li></ul></div><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">3.</span> Achieving Stunning Visuals</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Display options for ultimate clarity:</strong> Navigate choices from cutting-edge TVs to high-performance projectors.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Optimal source integration:</strong> Select the best Blu-ray players, streaming devices, or gaming consoles.</span></li></ul></div><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">4.</span> Seamless Connectivity & Wiring</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Effortless cable management:</strong> Discover expert strategies for organizing your system's cables.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Embracing wireless convenience:</strong> Explore cutting-edge wireless connectivity options to simplify your setup.</span></li></ul></div><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">5.</span> Professional Calibration</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Fine-tune your experience:</strong> Learn how professional calibration ensures optimal performance.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Unlock pro-level quality:</strong> Gain insider tips to achieve the perfect balance of sound and picture quality.</span></li></ul></div><div class="bg-slate-800/50 p-8 rounded-2xl shadow-lg border border-slate-700"><h3 class="text-3xl font-bold text-white mb-4"><span class="text-cyan-400">6.</span> Designing Your Sanctuary</h3><ul class="space-y-3 text-gray-300"><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Create your dream oasis:</strong> Explore inspiring design concepts and decor options to transform your home theatre.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-cyan-400 mt-1 mr-3"></i><span><strong>Enhance your environment:</strong> Discover the transformative power of integrated lighting control systems.</span></li></ul></div></div><div class="mt-12 bg-slate-900/70 p-8 md:p-12 rounded-2xl border border-slate-700"><h2 class="text-4xl font-bold text-white text-center mb-6">Optimizing Your Immersion</h2><div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-gray-300"><p class="flex items-start"><i class="fas fa-dot-circle text-cyan-500 mt-1 mr-3"></i><span><strong>Strategic Speaker Placement:</strong> For truly optimal surround sound, we meticulously position speakers according to your chosen system configuration.</span></p><p class="flex items-start"><i class="fas fa-dot-circle text-cyan-500 mt-1 mr-3"></i><span><strong>Precision Calibration is Key:</strong> Our experts utilize advanced calibration tools to fine-tune every aspect of your system.</span></p><p class="flex items-start"><i class="fas fa-dot-circle text-cyan-500 mt-1 mr-3"></i><span><strong>Dynamic Lighting Control:</strong> Experience enhanced visual impact with smart dimmable lighting and specialized blackout solutions.</span></p><p class="flex items-start"><i class="fas fa-dot-circle text-cyan-500 mt-1 mr-3"></i><span><strong>Ergonomic Seating Design:</strong> We advise on seating arrangements within the ideal viewing distance for your chosen screen size.</span></p><p class="flex items-start md:col-span-2"><i class="fas fa-dot-circle text-cyan-500 mt-1 mr-3"></i><span><strong>Ambience That Transports You:</strong> Consider integrating smart lighting systems that dynamically sync with on-screen content.</span></p></div></div></div></section>
+        
+        <section class="py-20 lg:py-32"><div class="container mx-auto px-6 text-center"><h2 class="text-4xl lg:text-5xl font-bold uppercase text-white">Visualize Your Dream Theater with AI</h2><p class="mt-4 max-w-2xl mx-auto text-gray-400">Can't picture it? Describe your ideal room, and let our AI bring your vision to life in an instant concept image.</p><div class="max-w-4xl mx-auto mt-12 grid lg:grid-cols-2 gap-8 items-center"><form id="image-gen-form" class="text-left space-y-4"><textarea id="image-prompt" rows="4" class="w-full bg-slate-800/50 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-slate-700" placeholder="e.g., A cozy home theater with dark wood walls, plush red velvet recliners, and a starry night ceiling..."></textarea><button type="submit" id="generate-image-btn" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg p-3 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center"><span class="btn-text">Generate Concept</span><i class="fas fa-wand-magic-sparkles ml-2"></i></button></form><div id="image-display-area" class="bg-slate-800/50 rounded-lg aspect-video flex items-center justify-center border-2 border-dashed border-slate-600"><div id="image-loader" class="text-center text-gray-400 hidden"><div class="spinner h-12 w-12 rounded-full mx-auto"></div><p class="mt-2">Generating your vision...</p></div><p id="image-placeholder" class="text-gray-500">AI-generated image will appear here</p><img id="generated-image" src="" alt="AI-generated home theater concept" class="w-full h-full object-cover rounded-lg hidden"/></div></div></div></section>
+    </main>
+
+    <!-- Video Player Modal -->
+    <div id="video-modal" class="video-modal-overlay hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        <div class="relative w-full max-w-4xl">
+            <button id="close-video-modal" class="absolute -top-10 right-0 text-white text-4xl hover:text-cyan-400 transition-colors">&times;</button>
+            <video id="journey-video" class="w-full h-full rounded-lg" controls>
+                <source src="./images/v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <div id="social-toggle" class="social-toggle-container"><a href="https://youtube.com" target="_blank" class="social-toggle-item social-youtube w-14 h-14 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-youtube text-2xl"></i></a><a href="https://instagram.com" target="_blank" class="social-toggle-item social-instagram w-14 h-14 rounded-full instagram-gradient flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-instagram text-2xl"></i></a><a href="https://wa.me/917483677007" target="_blank" class="social-toggle-item social-whatsapp w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-whatsapp text-2xl"></i></a><button id="social-main-btn" class="social-main-button w-16 h-16 rounded-full bg-cyan-500 hover:bg-cyan-600 flex items-center justify-center text-white shadow-lg relative z-10 transform hover:scale-110"><i class="fas fa-plus text-2xl"></i></button></div>
+    
+    <footer class="bg-[#0d1428] border-t border-slate-800"><div class="container mx-auto px-6 pt-16 pb-8"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-gray-400"><div class="mb-4 lg:mb-0"><a href="index.html" class="flex items-center space-x-2 mb-4 text-xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-8"><span>Raisun</span></a><p class="text-sm mb-4">Designing immersive audio-visual experiences that bring stories to life. Your journey to the ultimate home cinema starts here.</p><div class="flex space-x-4"><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-youtube text-xl"></i></a></div></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h3><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition-colors">Home</a></li><li><a href="services.html" class="hover:text-white transition-colors">Services</a></li><li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li><li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li><li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Get In Touch</h3><ul class="space-y-3 text-sm"><li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i><span>No 343/23A, Ground Floor, Jayanagar 5th Block, Bangalore, 560041</span></li><li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-cyan-400"></i><a href="tel:+917483677007" class="hover:text-white transition-colors">74836 77007</a></li><li class="flex items-start"><i class="fas fa-envelope mt-1 mr-3 text-cyan-400"></i><div class="space-y-1"><p><a href="mailto:info@raisunenterprises.com" class="hover:text-white transition-colors">info@raisunenterprises.com</a></p><p><a href="mailto:sales@raisunenterprises.com" class="hover:text-white transition-colors">sales@raisunenterprises.com</a></p><p><a href="mailto:support@raisunenterprises.com" class="hover:text-white transition-colors">support@raisunenterprises.com</a></p><p><a href="mailto:accounts@raisunenterprises.com" class="hover:text-white transition-colors">accounts@raisunenterprises.com</a></p></div></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Join Our Newsletter</h3><p class="text-sm mb-4">Get updates on the latest AV tech, new products, and exclusive offers.</p><form id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex"><input type="email" name="email" placeholder="Your email" class="w-full bg-slate-700 text-white p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-transparent" required><button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-4 rounded-r-lg transition-colors"><i class="fas fa-paper-plane"></i></button></form><div id="newsletter-status" class="mt-2 text-sm"></div></div></div><div class="mt-12 pt-8 border-t border-slate-700/50 text-center text-sm"><p class="text-gray-500">&copy; <span id="current-year"></span> Raisun Enterprises. All Rights Reserved. </p><p class="text-gray-600 mt-1"><a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a><span class="mx-2">|</span><a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a></p></div></div></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- Mobile Menu ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; });
+            const closeMenu = () => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; }
+            closeMobileMenuButton.addEventListener('click', closeMenu);
+            document.querySelectorAll('.mobile-nav-link').forEach(link => { link.addEventListener('click', closeMenu); });
+
+            // --- Social Toggle ---
+            const socialToggle = document.getElementById('social-toggle');
+            const socialMainBtn = document.getElementById('social-main-btn');
+            socialMainBtn.addEventListener('click', () => { socialToggle.classList.toggle('active'); });
+
+            // --- Video Modal ---
+            const videoThumbnail = document.getElementById('video-thumbnail');
+            const videoModal = document.getElementById('video-modal');
+            const journeyVideo = document.getElementById('journey-video');
+            const closeVideoModalBtn = document.getElementById('close-video-modal');
+
+            const openVideoModal = () => {
+                videoModal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+                journeyVideo.play().catch(error => {
+                    if (error.name !== 'AbortError') {
+                        console.error("Video play failed:", error);
+                    }
+                });
+            };
+
+            const closeVideoModal = () => {
+                videoModal.classList.add('hidden', 'opacity-0', 'pointer-events-none');
+                journeyVideo.pause();
+                journeyVideo.currentTime = 0;
+            };
+
+            videoThumbnail.addEventListener('click', openVideoModal);
+            closeVideoModalBtn.addEventListener('click', closeVideoModal);
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+
+            // --- AI Image Generator ---
+            const imageGenForm = document.getElementById('image-gen-form');
+            const imagePrompt = document.getElementById('image-prompt');
+            const generateImageBtn = document.getElementById('generate-image-btn');
+            const imageDisplayArea = document.getElementById('image-display-area');
+            const imageLoader = document.getElementById('image-loader');
+            const imagePlaceholder = document.getElementById('image-placeholder');
+            const generatedImage = document.getElementById('generated-image');
+
+            imageGenForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const promptText = imagePrompt.value;
+                if (!promptText) return;
+
+                generateImageBtn.disabled = true;
+                generateImageBtn.querySelector('.btn-text').textContent = 'Generating...';
+                imagePlaceholder.classList.add('hidden');
+                generatedImage.classList.add('hidden');
+                imageLoader.classList.remove('hidden');
+
+                const fullPrompt = `A cinematic, photorealistic image of ${promptText}`;
+                const payload = { instances: { prompt: fullPrompt }, parameters: { "sampleCount": 1 } };
+                const apiKey = "AIzaSyCtYCfMnEvjITPS2SdP3mICpt4xZsY2on0";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                    const result = await response.json();
+
+                    if (result.predictions && result.predictions[0].bytesBase64Encoded) {
+                        generatedImage.src = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                        generatedImage.classList.remove('hidden');
+                    } else { throw new Error('No image data in response.'); }
+                } catch (error) {
+                    console.error("Image Generation Error:", error);
+                    imagePlaceholder.textContent = "Sorry, couldn't generate the image. Please try again.";
+                    imagePlaceholder.classList.remove('hidden');
+                } finally {
+                    imageLoader.classList.add('hidden');
+                    generateImageBtn.disabled = false;
+                    generateImageBtn.querySelector('.btn-text').textContent = 'Generate Concept';
+                }
+            });
+
+            // --- Newsletter Formspree Logic ---
+            const newsletterForm = document.getElementById('newsletter-form');
+            if(newsletterForm) {
+                const newsletterStatus = document.getElementById('newsletter-status');
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const data = new FormData(e.target);
+                    try {
+                        const response = await fetch(e.target.action, {
+                            method: newsletterForm.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            newsletterStatus.innerHTML = "<p class='text-green-400'>Thanks for subscribing!</p>";
+                            newsletterForm.reset();
+                        } else {
+                            newsletterStatus.innerHTML = "<p class='text-red-400'>Could not subscribe.</p>";
+                        }
+                    } catch (error) {
+                        newsletterStatus.innerHTML = "<p class='text-red-400'>Oops! Something went wrong.</p>";
+                    }
+                });
+            }
+
+            // --- Footer Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

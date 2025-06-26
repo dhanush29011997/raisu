@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Raisun Enterprises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f1f; color: #e0e0e0; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; }
+        .gradient-text { background: linear-gradient(90deg, #ffffff, #a0d8f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 10px; border: 2px solid #0a0f1f; }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 18px; height: 100%; width: 4px; background: #1e293b; }
+        .timeline-item::before { content: ''; position: absolute; left: 8px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #0a0f1f; border: 4px solid #06b6d4; z-index: 1; }
+        .team-card { transform-style: preserve-3d; transition: transform 0.5s; }
+        .team-card:hover { transform: rotateY(5deg) rotateX(10deg) scale(1.05); }
+        .social-toggle-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+        .social-toggle-item { position: absolute; bottom: 0; right: 0; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); opacity: 0; transform: scale(0.5); }
+        .social-toggle-container.active .social-toggle-item { opacity: 1; transform: scale(1); }
+        .social-toggle-container.active .social-whatsapp { transform: translate(0, -5rem); }
+        .social-toggle-container.active .social-instagram { transform: translate(0, -9.5rem); }
+        .social-toggle-container.active .social-youtube { transform: translate(0, -14rem); }
+        .social-main-button { transition: transform 0.3s ease; }
+        .social-toggle-container.active .social-main-button { transform: rotate(135deg); }
+        .instagram-gradient { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+    </style>
+</head>
+<body class="antialiased">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-sm shadow-lg"><nav class="container mx-auto px-6 py-4 flex justify-between items-center"><a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-10"><span>Raisun</span></a><ul class="hidden lg:flex items-center space-x-8 text-white"><li><a href="index.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Home</a></li><li><a href="services.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Services</a></li><li><a href="about.html" class="nav-link text-cyan-400 font-semibold transition-colors duration-300">About</a></li><li><a href="gallery.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Gallery</a></li><li><a href="contact.html" class="nav-link hover:text-cyan-400 transition-colors duration-300">Contact</a></li></ul><button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none"><i class="fas fa-bars text-2xl"></i></button></nav></header>
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-50"><div class="flex flex-col items-center justify-center h-full"><button id="close-mobile-menu" class="absolute top-8 right-8 text-white text-3xl">&times;</button><ul class="text-center space-y-8"><li><a href="index.html" class="mobile-nav-link text-3xl text-white font-medium">Home</a></li><li><a href="services.html" class="mobile-nav-link text-3xl text-white font-medium">Services</a></li><li><a href="about.html" class="mobile-nav-link text-3xl text-cyan-400 font-medium">About</a></li><li><a href="gallery.html" class="mobile-nav-link text-3xl text-white font-medium">Gallery</a></li><li><a href="contact.html" class="mobile-nav-link text-3xl text-white font-medium">Contact</a></li></ul></div></div>
+    <main>
+        <section class="pt-32 pb-16 lg:pt-48 lg:pb-32 text-center relative bg-cover bg-center" style="background-image: url('./images/i1.png');"><div class="absolute inset-0 bg-black/70"></div><div class="container mx-auto px-6 relative z-10"><h1 class="text-5xl md:text-7xl font-bold uppercase tracking-wide gradient-text">Our Story</h1><p class="mt-4 text-lg max-w-3xl mx-auto text-gray-300">Founded on a passion for pristine sound and breathtaking visuals, Raisun Enterprises is dedicated to bringing the magic of cinema into your home.</p></div></section>
+        <section class="py-20 lg:py-32"><div class="container mx-auto px-6"><div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"><div class="text-left fade-in-up"><h2 class="text-4xl lg:text-5xl font-bold uppercase text-white mb-6">The Raisun Philosophy</h2><p class="text-gray-300 mb-8 text-lg">We believe that entertainment is an experience, not just a feature. Our mission is to be Bangalore's most trusted home theater installer by delivering unparalleled service, associating with top talent, and turning our clients' dreams into reality. From initial design to final calibration, we handle every detail with precision and care.</p></div><div class="rounded-2xl overflow-hidden shadow-2xl h-full fade-in-up" style="animation-delay: 0.2s;"><img src="./images/i4.png" alt="Close-up of high-end audio equipment" class="w-full h-full object-cover min-h-[400px]"></div></div></div></section>
+        <section class="py-20 lg:py-24 bg-[#0d1428]"><div class="container mx-auto px-6"><div class="grid md:grid-cols-3 gap-8 text-center"><div class="fade-in-up p-8 bg-slate-800/40 rounded-2xl border border-transparent hover:border-cyan-500 transition-all duration-300"><i class="fas fa-lightbulb text-4xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-semibold text-white">Innovation</h3><p class="text-gray-400 mt-2">Constantly seeking the most advanced audio-visual technologies to enhance your experience.</p></div><div class="fade-in-up p-8 bg-slate-800/40 rounded-2xl border border-transparent hover:border-cyan-500 transition-all duration-300" style="animation-delay: 0.2s;"><i class="fas fa-star text-4xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-semibold text-white">Excellence</h3><p class="text-gray-400 mt-2">Delighting our customers by setting and achieving evolving benchmarks of satisfaction.</p></div><div class="fade-in-up p-8 bg-slate-800/40 rounded-2xl border border-transparent hover:border-cyan-500 transition-all duration-300" style="animation-delay: 0.4s;"><i class="fas fa-handshake text-4xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-semibold text-white">Trust</h3><p class="text-gray-400 mt-2">Building and reinforcing relationships of mutual benefit and integrity with all stakeholders.</p></div></div></div></section>
+        <section class="py-20 lg:py-32"><div class="container mx-auto px-6"><div class="text-center mb-16 fade-in-up"><h2 class="text-4xl lg:text-5xl font-bold uppercase text-white">Our Journey</h2><p class="mt-4 max-w-2xl mx-auto text-gray-400">From a passionate idea to Bangalore's premier home cinema specialists.</p></div><div class="relative timeline max-w-3xl mx-auto"><div class="timeline-item relative pl-16 pb-12 fade-in-up"><h3 class="text-2xl font-semibold text-cyan-400">2018 - The Spark</h3><p class="text-gray-400 mt-2">Raisun Enterprises was founded with a simple mission: to bring the magic of the big screen into our clients' homes with unparalleled quality and passion.</p></div><div class="timeline-item relative pl-16 pb-12 fade-in-up"><h3 class="text-2xl font-semibold text-cyan-400">2020 - First Major Project</h3><p class="text-gray-400 mt-2">We complete our first large-scale residential development, outfitting a luxury apartment complex with state-of-the-art automated entertainment solutions.</p></div><div class="timeline-item relative pl-16 pb-12 fade-in-up"><h3 class="text-2xl font-semibold text-cyan-400">2022 - Introducing Tritone</h3><p class="text-gray-400 mt-2">Launched our exclusive in-house brand, Tritone, offering hi-end speakers and audio components that provide unmatched quality and value.</p></div><div class="timeline-item relative pl-16 fade-in-up"><h3 class="text-2xl font-semibold text-cyan-400">Today - Your Trusted Partner</h3><p class="text-gray-400 mt-2">We continue to be the trusted partner for audiophiles and cinephiles across Bangalore, delivering bespoke experiences backed by expert support.</p></div></div></div></section>
+        <section class="py-20 lg:py-32 bg-[#0d1428]"><div class="container mx-auto px-6"><div class="text-center mb-16"><h2 class="text-4xl lg:text-5xl font-bold uppercase text-white">Meet Our Experts</h2><p class="mt-4 max-w-2xl mx-auto text-gray-400">The dedicated professionals turning your audio-visual dreams into reality.</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" style="perspective: 1000px;"><div class="team-card text-center bg-slate-800/50 p-6 rounded-2xl shadow-lg border border-slate-700"><img src="https://placehold.co/300x300/1e293b/FFFFFF?text=Team" alt="Team Member 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700"><h3 class="text-2xl font-semibold text-white">Alex Johnson</h3><p class="text-cyan-400 mb-2">Founder & Lead Designer</p><p class="text-sm text-gray-400 mb-4">With over 15 years of experience, Alex architects breathtaking cinematic spaces from the ground up.</p><div class="team-card-socials flex justify-center space-x-4 text-gray-500"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="team-card text-center bg-slate-800/50 p-6 rounded-2xl shadow-lg border border-slate-700"><img src="https://placehold.co/300x300/1e293b/FFFFFF?text=Team" alt="Team Member 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700"><h3 class="text-2xl font-semibold text-white">Maria Garcia</h3><p class="text-cyan-400 mb-2">Head of Acoustics</p><p class="text-sm text-gray-400 mb-4">Maria is an expert in sound dynamics, ensuring every room provides a perfectly balanced audio experience.</p><div class="team-card-socials flex justify-center space-x-4 text-gray-500"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="team-card text-center bg-slate-800/50 p-6 rounded-2xl shadow-lg border border-slate-700"><img src="https://placehold.co/300x300/1e293b/FFFFFF?text=Team" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700"><h3 class="text-2xl font-semibold text-white">Chen Wei</h3><p class="text-cyan-400 mb-2">Lead Technician</p><p class="text-sm text-gray-400 mb-4">Chen leads our installation team, guaranteeing meticulous setup and flawless system integration.</p><div class="team-card-socials flex justify-center space-x-4 text-gray-500"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="team-card text-center bg-slate-800/50 p-6 rounded-2xl shadow-lg border border-slate-700"><img src="https://placehold.co/300x300/1e293b/FFFFFF?text=Team" alt="Team Member 4" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-slate-700"><h3 class="text-2xl font-semibold text-white">Priya Patel</h3><p class="text-cyan-400 mb-2">Client Relations</p><p class="text-sm text-gray-400 mb-4">Priya is your dedicated point of contact, ensuring a smooth and transparent journey from start to finish.</p><div class="team-card-socials flex justify-center space-x-4 text-gray-500"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div></div></div></section>
+    </main>
+    <div id="social-toggle" class="social-toggle-container"><a href="https://youtube.com" target="_blank" class="social-toggle-item social-youtube w-14 h-14 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-youtube text-2xl"></i></a><a href="https://instagram.com" target="_blank" class="social-toggle-item social-instagram w-14 h-14 rounded-full instagram-gradient flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-instagram text-2xl"></i></a><a href="https://wa.me/917483677007" target="_blank" class="social-toggle-item social-whatsapp w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white shadow-lg transform hover:scale-110"><i class="fab fa-whatsapp text-2xl"></i></a><button id="social-main-btn" class="social-main-button w-16 h-16 rounded-full bg-cyan-500 hover:bg-cyan-600 flex items-center justify-center text-white shadow-lg relative z-10 transform hover:scale-110"><i class="fas fa-plus text-2xl"></i></button></div>
+    <footer class="bg-[#0d1428] border-t border-slate-800"><div class="container mx-auto px-6 pt-16 pb-8"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-gray-400"><div class="mb-4 lg:mb-0"><a href="index.html" class="flex items-center space-x-2 mb-4 text-xl font-bold text-white uppercase tracking-wider"><img src="./images/logo1.png" alt="Raisun Enterprises Logo" class="h-8"><span>Raisun</span></a><p class="text-sm mb-4">Designing immersive audio-visual experiences that bring stories to life. Your journey to the ultimate home cinema starts here.</p><div class="flex space-x-4"><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="hover:text-cyan-400 transition-colors"><i class="fab fa-youtube text-xl"></i></a></div></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h3><ul class="space-y-2 text-sm"><li><a href="index.html" class="hover:text-white transition-colors">Home</a></li><li><a href="services.html" class="hover:text-white transition-colors">Services</a></li><li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li><li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li><li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Get In Touch</h3><ul class="space-y-3 text-sm"><li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-cyan-400"></i><span>No 343/23A, Ground Floor, Jayanagar 5th Block, Bangalore, 560041</span></li><li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-cyan-400"></i><a href="tel:+917483677007" class="hover:text-white transition-colors">74836 77007</a></li><li class="flex items-start"><i class="fas fa-envelope mt-1 mr-3 text-cyan-400"></i><div class="space-y-1"><p><a href="mailto:info@raisunenterprises.com" class="hover:text-white transition-colors">info@raisunenterprises.com</a></p><p><a href="mailto:sales@raisunenterprises.com" class="hover:text-white transition-colors">sales@raisunenterprises.com</a></p><p><a href="mailto:support@raisunenterprises.com" class="hover:text-white transition-colors">support@raisunenterprises.com</a></p><p><a href="mailto:accounts@raisunenterprises.com" class="hover:text-white transition-colors">accounts@raisunenterprises.com</a></p></div></li></ul></div><div><h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Join Our Newsletter</h3><p class="text-sm mb-4">Get updates on the latest AV tech, new products, and exclusive offers.</p><form id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="flex"><input type="email" name="email" placeholder="Your email" class="w-full bg-slate-700 text-white p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-transparent" required><button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-4 rounded-r-lg transition-colors"><i class="fas fa-paper-plane"></i></button></form><div id="newsletter-status" class="mt-2 text-sm"></div></div></div><div class="mt-12 pt-8 border-t border-slate-700/50 text-center text-sm"><p class="text-gray-500">&copy; <span id="current-year"></span> Raisun Enterprises. All Rights Reserved. </p><p class="text-gray-600 mt-1"><a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a><span class="mx-2">|</span><a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a></p></div></div></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; });
+            const closeMenu = () => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; }
+            closeMobileMenuButton.addEventListener('click', closeMenu);
+            document.querySelectorAll('.mobile-nav-link').forEach(link => { link.addEventListener('click', closeMenu); });
+
+            // Animate elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.fade-in-up').forEach(el => { observer.observe(el); });
+
+            // Social Toggle
+            const socialToggle = document.getElementById('social-toggle');
+            const socialMainBtn = document.getElementById('social-main-btn');
+            socialMainBtn.addEventListener('click', () => { socialToggle.classList.toggle('active'); });
+
+            // Newsletter Formspree Logic
+            const newsletterForm = document.getElementById('newsletter-form');
+            if(newsletterForm) {
+                const newsletterStatus = document.getElementById('newsletter-status');
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const data = new FormData(e.target);
+                    try {
+                        const response = await fetch(e.target.action, {
+                            method: newsletterForm.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            newsletterStatus.innerHTML = "<p class='text-green-400'>Thanks for subscribing!</p>";
+                            newsletterForm.reset();
+                        } else {
+                            newsletterStatus.innerHTML = "<p class='text-red-400'>Could not subscribe.</p>";
+                        }
+                    } catch (error) {
+                        newsletterStatus.innerHTML = "<p class='text-red-400'>Oops! Something went wrong.</p>";
+                    }
+                });
+            }
+
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
