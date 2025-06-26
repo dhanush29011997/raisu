@@ -187,7 +187,7 @@
 
                     let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
                     const payload = { contents: chatHistory, generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { "display": { "type": "STRING" }, "soundSystem": { "type": "STRING" }, "acoustics": { "type": "STRING" }, "layout": { "type": "STRING" }, "summary": { "type": "STRING" } }, } } };
-                    const apiKey = "AIzaSyAHi8cUuFSpLFU6Yxc41esvhpaZePBEFko";
+                    const apiKey = "";
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                     try {
